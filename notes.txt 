@@ -1,0 +1,12 @@
+mutexes ;
+
+A Mutex is a lock that we set before using a shared resource and release after using it.
+
+first step to do is making a mutex variable, and name it (pthread_mutex_t (name));
+then we initialize the mutex (pthread_mutex_init (&name, NULL)); i sitll need to know
+about the second argument on the init function;
+then we need to destroy the mutex (pthread_mutex_destroy (&name));
+now we go to the section of code we want to lock nad we lock it using
+(pthread_mutex_lock (&name)), to release that lock , we call the 
+fucntion (pthread_mutex_unlock (&name));
+

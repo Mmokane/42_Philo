@@ -6,7 +6,7 @@
 #    By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/05 00:10:17 by mmokane           #+#    #+#              #
-#    Updated: 2023/05/12 04:38:58 by mmokane          ###   ########.fr        #
+#    Updated: 2023/05/15 03:20:00 by mmokane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = cc
 
 CFLAGS = -Wall -Werror -Wextra #-fsanitize=address -g
 
-SRCS = ft_error.c philo.c  \
+SRCS =  init/mutexes.c utils.c ft_strdup.c \
 
 OBJS = $(SRCS:.c=.o)
 

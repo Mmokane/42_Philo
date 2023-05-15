@@ -6,7 +6,7 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 04:05:44 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/13 04:05:55 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/15 03:18:47 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,25 @@ int	ft_atoi(const char *str)
 	return (res * sign);
 }
 
+void	ft_putstr(char *str, int fd)
+{
+	while (*str)
+		write(fd, str++, 1);
+}
+char	*ft_strdup(char *s)
+{
+	int		i;
+	char	*str;
+
+	str = malloc(ft_strlen(s) + 1);
+	if (!str)
+		return (0);
+	i = 0;
+	while (s[i])
+	{
+		str[i] = s[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}

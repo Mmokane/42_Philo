@@ -6,7 +6,7 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:19:57 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/13 16:05:15 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/15 04:08:18 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,37 @@
 # include <pthread.h>
 # include <fcntl.h>
 
+
+typedef struct s_philos
+{
+	int	id;
+	int	eatin;
+	int	left_fork;
+	int right_fork;
+	int he_ate_x_times;
+	struct s_utils *utils;
+}	t_philos;
+
 typedef struct s_utils
 {
-	size_t	philos_size;
-	int		philo_nb;
+	pthread_mutex_t mutex;
+	pthread_mutex_t	to_die;
+	pthread_mutex_t	*forks;
+	pthread_mutex_t	eat;
+	t_philos		*philos;
+	pthread_mutex_t	to_print;
+	uint64_t		real_time;
+	int				philos_nb;
+	int				eating_nbs;
+	uint64_t		dying_time;
+	uint64_t		eating_time;
+	uint64_t        sleeping_time;
 }	t_utils;
 
-typedef struct s_flsf
-{
-	 
-}	t_flsf;
 
-void	ft_error(void);
-int		main(int ac, char **av);
-int		filo_creat(int ac, char **av, t_flsf **philo, t_utils *utils);
+void	ft_putstr(char *str, int fd);
+char	*ft_strdup(char *s);
+int		ft_atoi(const char *str);
+int utils_init(t_utils *utils, int ac , char **av);
 
 #endif
