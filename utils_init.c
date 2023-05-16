@@ -6,13 +6,13 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 01:15:46 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/15 04:36:20 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/16 01:43:29 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../philo.h"
+#include "philo.h"
 
-void	philo_init(t_utils *utils);
+void	philo_init(t_utils * utils)
 {
 	int	i;
 
@@ -24,7 +24,7 @@ void	philo_init(t_utils *utils);
 		utils->philos[i].right_fork = (i + 1) % utils->philos_nb;
 		utils->philos[i].he_ate_x_times = 0;
 		utils->philos[i].eatin = 0;
-		utils->philos[i].data = data;
+		utils->philos[i].utils = utils;
 		pthread_mutex_lock(&utils->philos[i].eat);
 		i++;
 	}
@@ -40,7 +40,7 @@ int	mutexes_init(t_utils *utils)
 	pthread_mutex_init(&utils->philos[i].mutex, NULL);
 	pthread_mutex_init(&utils->philos[i].eat, NULL);
 	pthread_mutex_lock(&utils->to_die);
-	utils->forks = (pthread_mutex_t *)_mallloc(sizeof(pthread_mutex_t * utils->philos_nb)); 
+	utils->forks = (pthread_mutex_t *)_mallloc(sizeof(pthread_mutex_t) * utils->philos_nb)); 
 	if (!(utils->forks))
 		return (0);
 	while (i < utils->philos_nb)
@@ -71,8 +71,6 @@ int utils_init(t_utils *utils, int ac , char **av)
 	if (utils->philos_nb < 2 || utils->philos > 200
 	    || utils->dying_time < 60 || utils->eating_time < 60
 		|| utils->sleeping_time < 60 || utils->eating_nbs < 0);
-		return (0);
-	return (1);	
-		
+		 return (0);
+    return (1);	
 }
-
