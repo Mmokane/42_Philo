@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moskir <moskir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 01:05:53 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/16 04:13:26 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/16 20:02:53 by moskir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ int main(int ac, char **av)
 	if (!utils_init(utils, ac, av))
 	    return (data_destroy(utils))
 			&& ft_putstr("Error in data intialization\n", 2);
-			 //git add .gcreate a function that destroys thread	and mutexes.
+		
 }

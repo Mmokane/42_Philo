@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moskir <moskir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 01:15:46 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/16 01:43:29 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/16 22:53:39 by moskir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	philo_init(t_utils * utils)
 		utils->philos[i].left_fork = i;
 		utils->philos[i].right_fork = (i + 1) % utils->philos_nb;
 		utils->philos[i].he_ate_x_times = 0;
-		utils->philos[i].eatin = 0;
+		utils->philos[i].eatin= 0;
 		utils->philos[i].utils = utils;
 		pthread_mutex_lock(&utils->philos[i].eat);
 		i++;
@@ -59,9 +59,9 @@ int utils_init(t_utils *utils, int ac , char **av)
 	utils->dying_time = ft_atoi(av[2]);
 	utils->eating_time = ft_atoi(av[3]);
 	utils->sleeping_time = ft_atoi(av[4]);
-	utils->eating_nbs = 0;
+	utils->zlayf = 0;
 	if (ac == 6)
-		utils->eating_nbs = ft_atoi(av[5]);
+		utils->zlayf = ft_atoi(av[5]);
 	utils->forks = ft_strdup("");
 	utils->philos = (t_philos *)malloc((utils->philos_nb) * sizeof(t_philos));
 	if (!(utils->philos))
@@ -70,7 +70,7 @@ int utils_init(t_utils *utils, int ac , char **av)
 	mutexes_init(utils);
 	if (utils->philos_nb < 2 || utils->philos > 200
 	    || utils->dying_time < 60 || utils->eating_time < 60
-		|| utils->sleeping_time < 60 || utils->eating_nbs < 0);
+		|| utils->sleeping_time < 60 || utils->zlayf < 0);
 		 return (0);
     return (1);	
 }

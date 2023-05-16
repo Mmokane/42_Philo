@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moskir <moskir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:19:57 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/16 01:50:30 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/16 22:55:14 by moskir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,13 @@
 typedef struct s_philos
 {
 	int				id;
-	int				eatin;
+	int				eating_times;
 	int				left_fork;
 	int				right_fork;
 	int				he_ate_x_times;
+	pthread_t		thread;
 	struct s_utils	*utils;
+	int				done_eating;
 }	t_philos;
 
 typedef struct s_utils
@@ -39,21 +41,25 @@ typedef struct s_utils
 	pthread_mutex_t	to_die;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	eat;
-	t_philos		*philos;
+	struct t_philos	*philos;
 	pthread_mutex_t	to_print;
 	uint64_t		real_time;
+	uint64_t		start;
 	int				philos_nb;
-	int				eating_nbs;
+	int				zlayf;
 	uint64_t		dying_time;
 	uint64_t		eating_time;
 	uint64_t		sleeping_time;
 }	t_utils;
 
-int	ft_putstr(char *str, int fd);
+int		ft_putstr(char *str, int fd);
 char	*ft_strdup(char *s);
 int		ft_atoi(const char *str);
 int		utils_init(t_utils *utils, int ac, char **av);
 int		data_destroy(t_utils *utils);
+void 	free_strs(char **str);
+uint64_t real_time(void);
+void ft_Sleep(int time);
 
 
 #endif
