@@ -6,7 +6,7 @@
 /*   By: moskir <moskir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 00:44:55 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/16 23:02:43 by moskir           ###   ########.fr       */
+/*   Updated: 2023/05/16 23:30:56 by moskir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,5 @@ void ft_sleep(int time)
     time = real_time();
     usleep(time * 1000 * 0.9);
     while (real_time() - range < (long int)time)
-        usleep(80);
+        usleep(60);
 }
