@@ -6,7 +6,7 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 04:05:44 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/16 01:50:21 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/17 01:11:54 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	ft_putstr(char *str, int fd)
 		write(fd, str++, 1);
 	return (EXIT_FAILURE);
 }
+
 char	*ft_strdup(char *s)
 {
 	int		i;
