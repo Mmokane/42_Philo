@@ -6,7 +6,7 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:19:57 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/17 01:39:22 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/17 01:49:00 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_philos
 	int				done_eating;
 	int				eating_times;
 	int				he_ate_x_times;
+	
 }	t_philos;
 
 typedef struct s_utils
