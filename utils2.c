@@ -6,7 +6,7 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 00:44:55 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/17 01:51:53 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/18 05:16:05 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ int	data_destroy(t_utils *utils)
 		pthread_mutex_destroy(&utils->forks[i]);
 		i++;
 	}
-	free(utils->philos);
-	free(utils->forks);
+	//free(utils->philos);
+	//free(utils->forks);
 	return (1);
 }
 
@@ -66,7 +66,7 @@ void	free_strs(char **str)
 	free(str);
 }
 
-uint64_t	real_time(void)
+long long	real_time(void)
 {
 	struct timeval	time;
 
@@ -76,12 +76,12 @@ uint64_t	real_time(void)
 // kndrbo f 1000 bch nconvertiw mn seconds l miliseconds
 // kn9smo 3la 1000 bch nconveritw mn lmicroseconds l miliseconds
 
-void	ft_sleep(int time)
+void	ft_usleep(int time)
 {
 	long long	range;
 
-	time = real_time();
+	range = real_time();
 	usleep(time * 1000 * 0.9);
 	while (real_time() - range < (long int)time)
-		usleep(60);
+		usleep(50);
 }

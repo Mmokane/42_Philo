@@ -6,7 +6,7 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 20:23:16 by moskir            #+#    #+#             */
-/*   Updated: 2023/05/17 01:40:24 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/18 05:17:10 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	threads_starter(t_utils	*utils)
 			&my_life, &utils->philos[i]);
 		pthread_detach(utils->philos[i].thread);
 		i++;
-		usleep(60);
+		usleep(50);
 	}
 	return (1);
 }
@@ -41,22 +41,23 @@ void	*my_life(void	*arg)
 	eat = 0;
 	philo = (t_philos *)arg;
 	if (!(philo->id % 2))
-		ft_sleep(philo->utils->eating_time);
+		ft_usleep(philo->utils->eating_time);
 	while (1)
 	{
 		philo_eat(philo);
-		pthread_mutex_lock(&philo->utils->eat);
+		pthread_mutex_lock(&philo->utils->mutex);
 		eat++;
-		pthread_mutex_unlock(&philo->utils->eat);
+		pthread_mutex_unlock(&philo->utils->mutex);
 		if (philo->utils->zlayf != -1)
 		{
 			if (eat >= philo->utils->zlayf)
 			{
-				pthread_mutex_lock(&philo->utils->mutex);
+				pthread_mutex_lock(&philo->utils->mutex2);
 				philo->done_eating = 1;
-				pthread_mutex_unlock(&philo->utils->mutex);
+				pthread_mutex_unlock(&philo->utils->mutex2);
 				break ;
 			}
+				// printf("zpi\n");
 		}
 		philo_sleep(philo);
 		philo_think(philo);
