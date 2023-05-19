@@ -6,7 +6,7 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:19:57 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/18 05:04:29 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/19 08:11:47 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ typedef struct s_philos
 	int				id;
 	pthread_t		thread;
 	struct s_utils	*utils;
-	int				left_fork;
+	//int				left_fork;
 	int				done_eating;
-	int				eating_times;
+	//int				eating_times;
 	int				he_ate_x_times;
 	long long		last_meal;
 	
@@ -71,3 +71,7 @@ void		philo_eat(t_philos *philo);
 int			check_death(t_philos *philo);
 
 #endif
+
+
+//free(t_utils->utils);
+//free(utils->philos)
