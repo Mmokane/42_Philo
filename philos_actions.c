@@ -6,22 +6,22 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 03:27:10 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/18 05:05:25 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/19 09:22:02 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void    death(t_philos *philo)
+void	death(t_philos *philo)
 {
 	pthread_mutex_lock(&philo->utils->to_print);
 	printf("%lld %d died\n", real_time() - philo->utils->start, philo->id);
 }
 
-void    print_action(t_philos *philos, char *str)
+void	print_action(t_philos *philos, char *str)
 {
 	pthread_mutex_lock(&philos->utils->to_print);
-    printf("%lld %d %s\n", real_time() - philos->utils->start, philos->id, str);
+	printf("%lld %d %s\n", real_time() - philos->utils->start, philos->id, str);
 	pthread_mutex_unlock(&philos->utils->to_print);
 }
 
@@ -29,6 +29,7 @@ void	philo_think(t_philos *philo)
 {
 	print_action(philo, "is thinking");
 }
+
 void	philo_sleep(t_philos *philo)
 {
 	print_action(philo, "is sleeping");

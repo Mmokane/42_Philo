@@ -6,7 +6,7 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 01:05:53 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/19 08:28:50 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/19 09:30:09 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,13 @@ int	main(int ac, char **av)
 	utils = malloc(sizeof(t_utils));
 	utils_init(utils, ac, av);
 	if (!philo_init(utils))
-		return (0);		
+		return (0);
 	if (!mutexes_init(utils))
 		return (0);
 	if (!threads_starter(utils))
-	    return (0);
+		return (0);
 	check_death(utils->philos);
 	data_destroy(utils);
 	system("leaks philo");
-	// free(utils);//data_destroy(utils);
-	// if (utils->philos)
-	//     free(utils->philos);
-	// if (utils->forks)
-	//     free(utils->forks);
 	return (0);
 }

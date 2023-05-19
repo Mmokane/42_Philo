@@ -6,48 +6,24 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 00:44:55 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/19 08:14:43 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/19 09:25:37 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
 
 int	data_destroy(t_utils *utils)
 {
 	int	i;
 
 	i = 0;
-	// while (i < utils->philos_nb)
-	// {
-	// 	pthread_mutex_destroy(&utils->forks[i]);
-	// 	i++;
-	// }
-	
 	pthread_mutex_destroy(&utils->mutex);
 	pthread_mutex_destroy(&utils->mutex1);
 	pthread_mutex_destroy(&utils->mutex2);
 	pthread_mutex_destroy(&utils->to_print);
 	i = -1;
-	// while (++i < utils->philos_nb)
-	// 	free(&utils->philos[i]);
-	// free(utils->philos);
-	// free(utils->forks);
-	
-	//free(utils);
-
 	return (1);
 }
-
-// void	free_strs(char **str)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (str[i])
-// 		free(str[i++]);
-// 	free(str);
-// }
 
 long long	real_time(void)
 {
@@ -67,4 +43,11 @@ void	ft_usleep(int time)
 	usleep(time * 1000 * 0.9);
 	while (real_time() - range < (long int)time)
 		usleep(50);
+}
+
+int	ft_putstr(char *str, int fd)
+{
+	while (*str)
+		write(fd, str++, 1);
+	return (EXIT_FAILURE);
 }

@@ -6,7 +6,7 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 20:23:16 by moskir            #+#    #+#             */
-/*   Updated: 2023/05/19 01:44:53 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/19 08:40:46 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,8 @@ int	threads_starter(t_utils	*utils)
 
 void	*my_life(void	*arg)
 {
-	int			eat;
 	t_philos	*philo;
 
-	eat = 0;
 	philo = (t_philos *)arg;
 	if (!(philo->id % 2))
 		ft_usleep(philo->utils->eating_time);
@@ -46,18 +44,17 @@ void	*my_life(void	*arg)
 	{
 		philo_eat(philo);
 		pthread_mutex_lock(&philo->utils->mutex);
-		eat++;
+		philo->utils->eat++;
 		pthread_mutex_unlock(&philo->utils->mutex);
 		if (philo->utils->zlayf != -1)
 		{
-			if (eat >= philo->utils->zlayf)
+			if (philo->utils->eat >= philo->utils->zlayf)
 			{
 				pthread_mutex_lock(&philo->utils->mutex2);
 				philo->done_eating = 1;
 				pthread_mutex_unlock(&philo->utils->mutex2);
 				break ;
 			}
-				// printf("zpi\n");
 		}
 		philo_sleep(philo);
 		philo_think(philo);

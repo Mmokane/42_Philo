@@ -6,7 +6,7 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 04:05:44 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/18 04:14:49 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/19 09:24:56 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,27 +41,49 @@ int	ft_atoi(const char *str)
 	return (res * sign);
 }
 
-int	ft_putstr(char *str, int fd)
+int	check_death(t_philos *philo)
 {
-	while (*str)
-		write(fd, str++, 1);
-	return (EXIT_FAILURE);
+	int	i;
+
+	while (1)
+	{
+		i = -1;
+		while (++i < philo->utils->philos_nb)
+		{
+			lock(&philo);
+			if (philo[i].utils->dying_time <= real_time() - philo[i].last_meal)
+			{
+				if (philo[i].done_eating != 1)
+				{
+					pthread_mutex_lock(&philo->utils->to_print);
+					printf("%lld %d died\n", real_time() - philo->utils->start,
+						philo->id);
+					return (0);
+				}
+				else if (philo[i].done_eating == 1)
+					philo->utils->meals++;
+				check_teb(philo->utils->meals, philo->utils->zlayf);
+			}
+			unlock(&philo);
+		}
+	}
+	return (1);
 }
 
-// char	*ft_strdup(char *s)
-// {
-// 	int		i;
-// 	char	*str;
+void	check_teb(int meals, int zlayf)
+{
+	if (meals == zlayf)
+		return ;
+}
 
-// 	str = malloc(ft_strlen(s) + 1);
-// 	if (!str)
-// 		return (0);
-// 	i = 0;
-// 	while (s[i])
-// 	{
-// 		str[i] = s[i];
-// 		i++;
-// 	}
-// 	str[i] = '\0';
-// 	return (str);
-// }
+void	lock(t_philos **philo)
+{
+	pthread_mutex_lock(&(*philo)->utils->mutex);
+	pthread_mutex_lock(&(*philo)->utils->mutex2);
+}
+
+void	unlock(t_philos **philo)
+{
+	pthread_mutex_unlock(&(*philo)->utils->mutex);
+	pthread_mutex_unlock(&(*philo)->utils->mutex2);
+}
