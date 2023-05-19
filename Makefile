@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+         #
+#    By: moskir <moskir@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/05 00:10:17 by mmokane           #+#    #+#              #
-#    Updated: 2023/05/19 08:46:38 by mmokane          ###   ########.fr        #
+#    Updated: 2023/05/19 17:13:57 by moskir           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = philo
 
 CC = cc 
 
-CFLAGS = -Wall -Werror -Wextra #-fsanitize=thread -g
+CFLAGS = -Wall -Werror -Wextra -fsanitize=thread -g3
 
 SRCS =  philo.c philos_utils.c utils_init.c utils.c utils2.c \
 		philos_actions.c \

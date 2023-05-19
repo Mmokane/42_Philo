@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moskir <moskir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:19:57 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/19 09:19:49 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/19 17:14:53 by moskir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ typedef struct s_philos
 typedef struct s_utils
 {
 	int				die;
-	pthread_mutex_t	mutex;
+	pthread_mutex_t	mutex1;
 	long long		start;
 	int				zlayf;
-	pthread_mutex_t	mutex1;
 	pthread_mutex_t	mutex2;
+	pthread_mutex_t	mutex3;
 	pthread_mutex_t	*forks;
 	t_philos		*philos;
 	pthread_mutex_t	to_print;

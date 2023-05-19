@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philos_actions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moskir <moskir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 03:27:10 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/19 09:22:02 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/19 17:18:37 by moskir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ void	philo_eat(t_philos *philo)
 		% philo->utils->philos_nb]);
 	print_action(philo, "has taken a fork");
 	print_action(philo, "is eating");
-	pthread_mutex_lock(&philo->utils->mutex2);
+	pthread_mutex_lock(&philo->utils->mutex1);
 	philo->last_meal = real_time();
-	pthread_mutex_unlock(&philo->utils->mutex2);
+	pthread_mutex_unlock(&philo->utils->mutex1);
 	ft_usleep(philo->utils->eating_time);
 	pthread_mutex_unlock(&philo->utils->forks[philo->id - 1]);
 	pthread_mutex_unlock(&philo->utils->forks[philo->id

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philos_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moskir <moskir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 20:23:16 by moskir            #+#    #+#             */
-/*   Updated: 2023/05/19 08:40:46 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/19 17:33:44 by moskir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,20 @@ void	*my_life(void	*arg)
 {
 	t_philos	*philo;
 
+	int ate;
+	ate = 0;
 	philo = (t_philos *)arg;
 	if (!(philo->id % 2))
 		ft_usleep(philo->utils->eating_time);
 	while (1)
 	{
 		philo_eat(philo);
-		pthread_mutex_lock(&philo->utils->mutex);
-		philo->utils->eat++;
-		pthread_mutex_unlock(&philo->utils->mutex);
+		pthread_mutex_lock(&philo->utils->mutex3);
+		ate++;
+		pthread_mutex_unlock(&philo->utils->mutex3);
 		if (philo->utils->zlayf != -1)
 		{
-			if (philo->utils->eat >= philo->utils->zlayf)
+			if (ate >= philo->utils->zlayf)
 			{
 				pthread_mutex_lock(&philo->utils->mutex2);
 				philo->done_eating = 1;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moskir <moskir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 01:05:53 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/19 09:30:09 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/19 17:21:44 by moskir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 int	main(int ac, char **av)
 {
 	t_utils	*utils;
-
+	
+	utils = malloc(sizeof(t_utils));
+	utils_init(utils, ac, av);
 	if (ac != 5 && ac != 6)
 	{
 		ft_putstr("Wrong number of arguments\n", 2);
 	}
-	utils = malloc(sizeof(t_utils));
-	utils_init(utils, ac, av);
+	//utils = malloc(sizeof(t_utils));
+	//utils_init(utils, ac, av);
 	if (!philo_init(utils))
 		return (0);
 	if (!mutexes_init(utils))
@@ -29,7 +31,7 @@ int	main(int ac, char **av)
 	if (!threads_starter(utils))
 		return (0);
 	check_death(utils->philos);
-	data_destroy(utils);
+	//data_destroy(utils);
 	system("leaks philo");
 	return (0);
 }

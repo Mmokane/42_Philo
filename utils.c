@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moskir <moskir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 04:05:44 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/19 09:24:56 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/19 17:44:48 by moskir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	check_death(t_philos *philo)
 			lock(&philo);
 			if (philo[i].utils->dying_time <= real_time() - philo[i].last_meal)
 			{
-				if (philo[i].done_eating != 1)
+				if (philo[i].done_eating != -1)
 				{
 					pthread_mutex_lock(&philo->utils->to_print);
 					printf("%lld %d died\n", real_time() - philo->utils->start,
@@ -78,12 +78,12 @@ void	check_teb(int meals, int zlayf)
 
 void	lock(t_philos **philo)
 {
-	pthread_mutex_lock(&(*philo)->utils->mutex);
 	pthread_mutex_lock(&(*philo)->utils->mutex2);
+	pthread_mutex_lock(&(*philo)->utils->mutex1);
 }
 
 void	unlock(t_philos **philo)
 {
-	pthread_mutex_unlock(&(*philo)->utils->mutex);
+	pthread_mutex_unlock(&(*philo)->utils->mutex1);
 	pthread_mutex_unlock(&(*philo)->utils->mutex2);
 }

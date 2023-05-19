@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moskir <moskir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 00:44:55 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/19 09:25:37 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/19 17:13:06 by moskir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
+/*
 int	data_destroy(t_utils *utils)
 {
 	int	i;
@@ -24,6 +24,7 @@ int	data_destroy(t_utils *utils)
 	i = -1;
 	return (1);
 }
+*/
 
 long long	real_time(void)
 {
