@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moskir <moskir@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 01:15:46 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/19 17:32:28 by moskir           ###   ########.fr       */
+/*   Updated: 2023/05/19 22:35:42 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../includes/philo.h"
 
 int	philo_init(t_utils *utils)
 {
@@ -20,7 +20,7 @@ int	philo_init(t_utils *utils)
 	utils->philos = malloc(sizeof(t_philos) * (utils->philos_nb));
 	while (i < utils->philos_nb)
 	{
-		utils->philos[i].id = i;
+		utils->philos[i].id = i + 1;
 		utils->philos[i].he_ate_x_times = 0;
 		utils->philos[i].done_eating = 0;
 		utils->philos[i].utils = utils;
@@ -57,12 +57,14 @@ int	utils_init(t_utils *utils, int ac, char **av)
 	utils->eating_time = ft_atoi(av[3]);
 	utils->sleeping_time = ft_atoi(av[4]);
 	if (ac == 6)
+	{
 		utils->zlayf = ft_atoi(av[5]);
+		if (utils->zlayf < 0)
+			utils->zlayf = -2;
+	}
 	else if (ac == 5)
 		utils->zlayf = -1;
 	utils->forks = NULL;
-	
-	//utils->philos = (t_philos *)malloc((utils->philos_nb) * sizeof(t_philos));
 	if (!(utils->philos))
 		return (0);
 	philo_init(utils);

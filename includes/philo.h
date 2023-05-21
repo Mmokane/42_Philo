@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moskir <moskir@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:19:57 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/19 17:14:53 by moskir           ###   ########.fr       */
+/*   Updated: 2023/05/19 22:37:13 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void		philo_think(t_philos *philo);
 void		philo_sleep(t_philos *philo);
 void		philo_eat(t_philos *philo);
 int			check_death(t_philos *philo);
+int			arg_check(t_utils *utils, int ac);
 
 #endif
 // mutex  == to_eat

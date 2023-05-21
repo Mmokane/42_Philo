@@ -3,28 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moskir <moskir@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 00:44:55 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/19 17:13:06 by moskir           ###   ########.fr       */
+/*   Updated: 2023/05/21 06:42:36 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
-/*
-int	data_destroy(t_utils *utils)
-{
-	int	i;
-
-	i = 0;
-	pthread_mutex_destroy(&utils->mutex);
-	pthread_mutex_destroy(&utils->mutex1);
-	pthread_mutex_destroy(&utils->mutex2);
-	pthread_mutex_destroy(&utils->to_print);
-	i = -1;
-	return (1);
-}
-*/
+#include "../includes/philo.h"
 
 long long	real_time(void)
 {
@@ -50,5 +36,32 @@ int	ft_putstr(char *str, int fd)
 {
 	while (*str)
 		write(fd, str++, 1);
-	return (EXIT_FAILURE);
+	return (0);
+}
+
+int	arg_check(t_utils *utils, int ac)
+{
+	if (ac == 5)
+	{
+		if (utils->philos_nb > 200 || utils->philos_nb < 2
+			|| utils->philos_nb > 200 || utils->dying_time < 60
+			|| utils->sleeping_time < 60 || utils->zlayf == -2
+			|| utils->eating_time < 60)
+		{
+			ft_putstr("wrong arguments, recheck them please\n", 2);
+			return (0);
+		}
+	}
+	if (ac == 6)
+	{
+		if (utils->philos_nb > 200 || utils->philos_nb < 2
+			|| utils->dying_time < 60 || utils->eating_time < 60
+			|| utils->sleeping_time < 60 || utils->zlayf < 1
+			|| utils->philos_nb > 200)
+		{
+			ft_putstr("wrong arguments, recheck them please\n", 2);
+			return (0);
+		}
+	}
+	return (1);
 }
