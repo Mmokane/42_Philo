@@ -6,11 +6,11 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 20:23:16 by moskir            #+#    #+#             */
-/*   Updated: 2023/05/19 22:35:37 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/21 16:12:46 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/philo.h"
+#include "../inc/philo.h"
 
 int	threads_starter(t_utils	*utils)
 {

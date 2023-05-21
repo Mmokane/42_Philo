@@ -6,11 +6,11 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 01:15:46 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/19 22:35:42 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/21 16:12:49 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/philo.h"
+#include "../inc/philo.h"
 
 int	philo_init(t_utils *utils)
 {

@@ -6,11 +6,11 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 00:44:55 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/21 06:42:36 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/21 16:12:58 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/philo.h"
+#include "../inc/philo.h"
 
 long long	real_time(void)
 {

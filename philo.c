@@ -6,11 +6,11 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 01:05:53 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/19 22:36:09 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/21 16:13:07 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/philo.h"
+#include "inc/philo.h"
 
 int	main(int ac, char **av)
 {

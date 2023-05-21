@@ -6,11 +6,11 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 03:27:10 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/19 22:35:31 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/21 16:12:42 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/philo.h"
+#include "../inc/philo.h"
 
 void	death(t_philos *philo)
 {
