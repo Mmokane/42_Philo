@@ -6,7 +6,7 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:19:57 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/19 22:37:13 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/22 04:27:13 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,10 @@ long long	real_time(void);
 void		ft_usleep(int time);
 void		*my_life(void	*arg);
 int			main(int ac, char **av);
-int			ft_atoi(const char *str);
+int			ft_atoi(char *str);
 int			philo_init(t_utils *utils);
 int			mutexes_init(t_utils *utils);
 int			ft_putstr(char *str, int fd);
-int			data_destroy(t_utils *utils);
 int			threads_starter(t_utils	*utils);
 int			utils_init(t_utils *utils, int ac, char **av);
 void		death(t_philos *philo);
@@ -69,7 +68,9 @@ void		philo_think(t_philos *philo);
 void		philo_sleep(t_philos *philo);
 void		philo_eat(t_philos *philo);
 int			check_death(t_philos *philo);
-int			arg_check(t_utils *utils, int ac);
+int			arg_check(char **av);
+int			ft_isdigit(int digit);
+
 
 #endif
 // mutex  == to_eat
