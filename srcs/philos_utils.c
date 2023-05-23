@@ -6,7 +6,7 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 20:23:16 by moskir            #+#    #+#             */
-/*   Updated: 2023/05/23 04:10:42 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/23 20:46:44 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	*my_life(void *arg)
 		pthread_mutex_unlock(&philo->utils->mutex3);
 		if (philo->utils->zlayf != -1 && ate >= philo->utils->zlayf)
 		{
-			// printf("sala\n");
 			pthread_mutex_lock(&philo->utils->mutex2);
 			philo->done_eating = 1;
 			pthread_mutex_unlock(&philo->utils->mutex2);

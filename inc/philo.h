@@ -6,7 +6,7 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:19:57 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/23 04:17:33 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/23 20:42:19 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void		philo_sleep(t_philos *philo);
 void		philo_eat(t_philos *philo);
 int			check_death(t_philos *philo);
 int			arg_check(char **av);
+int			not_done_eating(t_philos *philo);
 
 #endif
 // mutex  == to_eat

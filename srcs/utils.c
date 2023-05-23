@@ -6,7 +6,7 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 04:05:44 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/23 04:18:26 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/23 20:48:21 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_atoi(char *str)
 	res = 0;
 	sign = 1;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;	
+		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
@@ -53,20 +53,12 @@ int	check_death(t_philos *philo)
 			lock(&philo);
 			if (philo[i].utils->dying_time <= real_time() - philo[i].last_meal)
 			{
-				if (philo[i].done_eating != 1)
-				{
-					pthread_mutex_lock(&philo->utils->to_print);
-					printf("%lld %d died\n", real_time() - philo->utils->start,
-						philo->id);
+				if (!(not_done_eating(philo)))
 					return (0);
-				}
 				else if (philo[i].done_eating == 1)
-				{
 					philo->utils->meals++;
-					if (philo->utils->meals == philo->utils->philos_nb)
-						return (0);
-				}
-				//check_teb(philo->utils->meals, philo->utils->zlayf);
+				if (philo->utils->meals == philo->utils->philos_nb)
+					return (0);
 			}
 			unlock(&philo);
 		}
@@ -74,10 +66,19 @@ int	check_death(t_philos *philo)
 	return (1);
 }
 
-void	check_teb(int meals, int zlayf)
+int	not_done_eating(t_philos *philo)
 {
-	if (meals == zlayf)
-		return ;
+	int	i;
+
+	i = 0;
+	if (philo[i].done_eating != 1)
+	{
+		pthread_mutex_lock(&philo->utils->to_print);
+		printf("%lld %d died\n", real_time() - philo->utils->start,
+			philo->id);
+		return (0);
+	}
+	return (1);
 }
 
 void	lock(t_philos **philo)
@@ -91,4 +92,3 @@ void	unlock(t_philos **philo)
 	pthread_mutex_unlock(&(*philo)->utils->mutex1);
 	pthread_mutex_unlock(&(*philo)->utils->mutex2);
 }
-
