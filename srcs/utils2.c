@@ -6,7 +6,7 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 00:44:55 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/22 04:32:41 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/23 03:12:25 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,33 +39,20 @@ int	ft_putstr(char *str, int fd)
 	return (0);
 }
 
-int	ft_isdigit(int digit)
-{
-	if (digit >= 48 && digit <= 57)
-        return (1);
-    return (0);
-}
-
 int	arg_check(char **av)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 1;
 	j = 0;
-	
 	while (av[i])
 	{
-		while (av[i][j])
-		{
-			if (!ft_isdigit(av[i][j]))
-				return (printf("Error, some arg are not numbers\n"));
-			j++;
-		}
+		if (!ft_atoi(av[i]))
+			return (printf("Error in the args\n"));
 		if (ft_atoi(av[i]) <= 0)
-			return (printf("Error, an arg is negative\n"));
+			return (printf("Error in the args\n"));
 		i++;
 	}
 	return (0);
 }
-

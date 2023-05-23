@@ -6,7 +6,7 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 01:05:53 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/22 04:27:20 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/22 23:59:07 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int ac, char **av)
 			return (0);
 		check_death(utils->philos);
 	}
-	else 
+	else
 		printf("Error in args\n");
 	return (0);
 }

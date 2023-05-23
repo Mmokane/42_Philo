@@ -6,7 +6,7 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 04:05:44 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/22 04:10:53 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/23 03:11:52 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ int	ft_atoi(char *str)
 		res = res * 10 + (str[i] - 48);
 		i++;
 	}
-	if (res >= 9223372036854775807 && sign > 0)
-		return (-1);
-	else if (res > 9223372036854775807 && sign < 0)
+	while (str[i] && (str[i] == ' ' || str[i] == '\t'))
+		i++;
+	if (str[i])
 		return (0);
 	return (res * sign);
 }
