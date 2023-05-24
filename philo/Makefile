@@ -6,7 +6,7 @@
 #    By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/05 00:10:17 by mmokane           #+#    #+#              #
-#    Updated: 2023/05/23 03:17:48 by mmokane          ###   ########.fr        #
+#    Updated: 2023/05/24 03:15:09 by mmokane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = philo
 
 CC = cc 
 
-CFLAGS = -Wall -Werror -Wextra -fsanitize=thread -g3
+CFLAGS = -Wall -Werror -Wextra #-fsanitize=address -g3
 
 SRCS =  philo.c srcs/philos_utils.c srcs/utils_init.c srcs/utils.c srcs/utils2.c \
 		srcs/philos_actions.c \

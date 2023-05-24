@@ -6,7 +6,7 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 00:19:57 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/23 20:42:19 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/23 20:50:36 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ typedef struct s_utils
 	int				meals;
 }	t_utils;
 
-// int	check_teb(t_philos *philo);
 void		unlock(t_philos **philo);
 void		lock(t_philos **philo);
 long long	real_time(void);
