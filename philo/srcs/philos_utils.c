@@ -6,7 +6,7 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 20:23:16 by moskir            #+#    #+#             */
-/*   Updated: 2023/05/23 20:46:44 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/28 17:48:58 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	threads_starter(t_utils	*utils)
 	int	i;
 
 	i = 0;
-	utils->die = 0;
 	utils->start = real_time();
 	while (i < utils->philos_nb)
 	{
@@ -29,9 +28,6 @@ int	threads_starter(t_utils	*utils)
 	}
 	return (1);
 }
-// create the eating fucntion; returns nothing.
-// cerate thinking function , returns nothing.
-// create sleeping fucntion , returns nothing.
 
 void	*my_life(void *arg)
 {

@@ -6,7 +6,7 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 01:15:46 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/21 16:12:49 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/28 17:46:34 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ int	utils_init(t_utils *utils, int ac, char **av)
 	}
 	else if (ac == 5)
 		utils->zlayf = -1;
-	utils->forks = NULL;
 	if (!(utils->philos))
 		return (0);
 	philo_init(utils);

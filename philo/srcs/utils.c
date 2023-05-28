@@ -6,7 +6,7 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 04:05:44 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/23 20:48:21 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/28 17:53:03 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	check_death(t_philos *philo)
 			{
 				if (!(not_done_eating(philo)))
 					return (0);
-				else if (philo[i].done_eating == 1)
+				if (philo[i].done_eating == 1)
 					philo->utils->meals++;
 				if (philo->utils->meals == philo->utils->philos_nb)
 					return (0);

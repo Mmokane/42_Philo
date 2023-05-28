@@ -6,7 +6,7 @@
 /*   By: mmokane <mmokane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 00:44:55 by mmokane           #+#    #+#             */
-/*   Updated: 2023/05/23 03:12:25 by mmokane          ###   ########.fr       */
+/*   Updated: 2023/05/28 17:45:45 by mmokane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ int	arg_check(char **av)
 	j = 0;
 	while (av[i])
 	{
-		if (!ft_atoi(av[i]))
-			return (printf("Error in the args\n"));
 		if (ft_atoi(av[i]) <= 0)
 			return (printf("Error in the args\n"));
 		i++;
